@@ -27,8 +27,11 @@ const Note = require("./Note");
 
 // GET all notes
 app.get("/notes", async (req, res) => {
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 10;
+  const skip = (page - 1) * limit;
   try {
-    const notes = await Note.find();
+    const notes = await Note.find().skip(skip).limit(limit);
     res.json(notes);
   } catch (error) {
     res.status(500).send(error.message);
