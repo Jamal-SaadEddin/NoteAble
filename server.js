@@ -72,3 +72,19 @@ app.put("/notes/:id", async (req, res) => {
     res.status(400).send(error.message);
   }
 });
+
+// GET search note by title or content
+app.get("/notes/search", async (req, res) => {
+  const query = req.query.query;
+  try {
+    const notes = await Note.find({
+      $or: [
+        { title: { $regex: query, $options: "i" } },
+        { content: { $regex: query, $options: "i" } },
+      ],
+    });
+    res.json(notes);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
