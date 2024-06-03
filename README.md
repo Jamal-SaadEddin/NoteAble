@@ -21,8 +21,8 @@ This project was developed as part of the training program at Foothill Technolog
 ## Setup and Installation
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/Jamal-SaadEddin/NoteAble.git
-   cd NoteAble
+   git clone https://github.com/Jamal-SaadEddin/NoteAble-BE.git
+   cd NoteAble-BE
    ```
 
 2. **Install Dependencies**
